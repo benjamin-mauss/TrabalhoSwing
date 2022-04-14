@@ -1,5 +1,6 @@
 package trabalhoSwing;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -139,9 +140,22 @@ public class tela2 extends javax.swing.JInternalFrame {
             }
         });
 
-        
+       
 
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // jButton1ActionPerformed(evt);
 
+                Double peso = Double.parseDouble(jTextPane3.getText());
+				Double altura = Double.parseDouble(jTextPane4.getText());
+				Double _imc = peso / (altura * altura);
+                
+                jTextPane5.setText(new DecimalFormat("#.##").format(_imc) + "|" + imc.Person.printBMITable(peso, altura, jRadioButton1.isSelected()? imc.Person._sex.male: imc.Person._sex.female));
+                
+				// calc.Cadastro.this
+				// new imc.Person(peso, altura, null);
+            }
+        });
 
 
         jButton5.setText("Sair");
