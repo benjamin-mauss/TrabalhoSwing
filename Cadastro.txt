@@ -1,0 +1,283 @@
+package calc;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JDesktopPane;
+import javax.swing.border.BevelBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JInternalFrame;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Period;
+import java.util.Calendar;
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import javax.swing.Box;
+import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import javax.swing.ListSelectionModel;  
+
+
+
+public class Cadastro extends JFrame {
+	
+	
+
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
+	private JTextField textField_9;
+	private imc.Person pessoa;
+	private JTable table;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Cadastro frame = new Cadastro();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Cadastro() {
+		pessoa = new imc.Person();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 797, 435);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JDesktopPane desktopPane = new JDesktopPane();
+		contentPane.add(desktopPane, BorderLayout.CENTER);
+		
+		JLabel lblNewLabel = new JLabel("Nome");
+		lblNewLabel.setBounds(10, 26, 39, 19);
+		desktopPane.add(lblNewLabel);
+		
+		JLabel lblEndereo = new JLabel("Endere\u00E7o");
+		lblEndereo.setBounds(10, 56, 55, 19);
+		desktopPane.add(lblEndereo);
+		
+		JLabel lblCidade = new JLabel("Cidade");
+		lblCidade.setBounds(10, 96, 39, 19);
+		desktopPane.add(lblCidade);
+		
+		JLabel lblCep = new JLabel("CEP");
+		lblCep.setBounds(166, 98, 39, 19);
+		desktopPane.add(lblCep);
+		
+		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento");
+		lblDataDeNascimento.setBounds(10, 161, 115, 19);
+		desktopPane.add(lblDataDeNascimento);
+		
+		JLabel lblModalidade = new JLabel("Modalidade");
+		lblModalidade.setBounds(246, 163, 77, 19);
+		desktopPane.add(lblModalidade);
+		
+		JLabel lblSexo = new JLabel("Sexo");
+		lblSexo.setBounds(10, 223, 39, 19);
+		desktopPane.add(lblSexo);
+		
+		JLabel lblPeso = new JLabel("Peso");
+		lblPeso.setBounds(10, 255, 39, 19);
+		desktopPane.add(lblPeso);
+		
+		JLabel lblAltura = new JLabel("Altura");
+		lblAltura.setBounds(129, 255, 39, 19);
+		desktopPane.add(lblAltura);
+		
+		textField = new JTextField();
+		textField.setBounds(82, 25, 149, 20);
+		desktopPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(82, 55, 149, 20);
+		desktopPane.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(215, 95, 86, 20);
+		desktopPane.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(135, 160, 86, 20);
+		desktopPane.add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(145, 190, 86, 20);
+		desktopPane.add(textField_4);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(63, 254, 62, 20);
+		desktopPane.add(textField_5);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(166, 254, 55, 20);
+		desktopPane.add(textField_6);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(342, 256, 55, 20);
+		desktopPane.add(textField_7);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(421, 256, 86, 20);
+		desktopPane.add(textField_8);
+		
+		JButton jButton1 = new JButton("idade");
+		jButton1.addActionListener(new ActionListener() {
+
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				
+				String meses[] = {"Janeiro", "Fevereiro", "Mar�o", "Abril", "Maio", "Junho", "Julho", "Agosto",
+						"Setembro", "Outubro", "Novembro", "Dezembro"};
+
+				
+			    var date1 = new SimpleDateFormat("dd/MM/yyyy");  	
+			    Date d;
+			    try {
+					d = date1.parse(textField_3.getText());
+					textField_4.setText(Integer.toString(getAge(d)));
+					textField_9.setText(meses[d.getMonth()]);
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			    
+			     
+			    
+				
+			}
+		});
+		jButton1.setBounds(10, 189, 92, 23);
+		desktopPane.add(jButton1);
+		
+		JButton btnImc = new JButton("IMC");
+		
+		btnImc.setBounds(249, 255, 74, 23);
+		desktopPane.add(btnImc);
+		
+		JButton btnGravar = new JButton("gravar");
+		btnGravar.setBounds(20, 352, 89, 23);
+		desktopPane.add(btnGravar);
+		
+		JButton btnRemover = new JButton("remover");
+		btnRemover.setBounds(148, 352, 89, 23);
+		desktopPane.add(btnRemover);
+		
+		JButton btnSair = new JButton("sair");
+		btnSair.setBounds(271, 352, 89, 23);
+		desktopPane.add(btnSair);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Sapiranga", "Dois Irm\u00E3os", "Campo Bom", "Ivoti", "Porto Alegre"}));
+		comboBox.setSelectedIndex(0);
+		comboBox.setBounds(59, 94, 97, 22);
+		desktopPane.add(comboBox);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Atletismo", "Salto", "Corrida", "Nado"}));
+		comboBox_1.setSelectedIndex(0);
+		comboBox_1.setBounds(335, 159, 80, 22);
+		desktopPane.add(comboBox_1);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Aluno ifsul");
+		chckbxNewCheckBox.setBounds(32, 296, 97, 23);
+		desktopPane.add(chckbxNewCheckBox);
+		
+		JCheckBox chckbxPossuiPassaporte = new JCheckBox("possui passaporte");
+		chckbxPossuiPassaporte.setBounds(151, 296, 141, 23);
+		desktopPane.add(chckbxPossuiPassaporte);
+		
+		JCheckBox chckbxVacinaFebreAmarela = new JCheckBox("Vacina febre amarela");
+		chckbxVacinaFebreAmarela.setBounds(294, 296, 158, 23);
+		desktopPane.add(chckbxVacinaFebreAmarela);
+		textField_9 = new JTextField();
+		textField_9.setColumns(10);
+		textField_9.setBounds(246, 193, 86, 20);
+		desktopPane.add(textField_9);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("mulher");
+		rdbtnNewRadioButton_1.setBounds(479, 310, 109, 23);
+		desktopPane.add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("homem");
+		rdbtnNewRadioButton.setBounds(479, 352, 109, 23);
+		desktopPane.add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton	.setSelected(true);
+		
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setForeground(Color.DARK_GRAY);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"1", "23", "4"},
+			},
+			new String[] {
+				"Nome", "Email", "Telefone"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table.setBounds(421, 28, 340, 202);
+		desktopPane.add(table);
+
+		
+		btnImc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Double peso = Double.parseDouble(textField_5.getText());
+				Double altura = Double.parseDouble(textField_6.getText());
+				System.out.println(rdbtnNewRadioButton.isSelected());
+				// calc.Cadastro.this
+				// new imc.Person(peso, altura, null);
+			}
+		});
+		
+	}
+}

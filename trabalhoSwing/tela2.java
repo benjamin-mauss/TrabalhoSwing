@@ -1,8 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
-package trabalhoSwing.TrabalhoSwing;
+package trabalhoSwing;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -10,7 +10,9 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Pablo Conte Correa
+ * @author Benjamin Walter Mauss
  */
+
 public class tela2 extends javax.swing.JInternalFrame {
 
     /**
@@ -118,9 +120,29 @@ public class tela2 extends javax.swing.JInternalFrame {
         jButton1.setText("Idade");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                // jButton1ActionPerformed(evt);
+
+                String meses[] = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto",
+						"Setembro", "Outubro", "Novembro", "Dezembro"};
+
+				
+			    var date1 = new SimpleDateFormat("dd/MM/yyyy");  	
+			    Date d;
+			    try {
+					d = date1.parse(jFormattedTextField2.getText());
+					jTextPane2.setText(Integer.toString(imc.Person.getAge(d)));
+					//textField_9.setText(meses[d.getMonth()]);
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
         });
+
+        
+
+
+
 
         jButton5.setText("Sair");
 
