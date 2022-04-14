@@ -4,6 +4,9 @@
  */
 package trabalhoSwing.TrabalhoSwing;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Pablo Conte Correa
@@ -61,11 +64,11 @@ public class tela2 extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
+        email = new javax.swing.JTextPane();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTextPane7 = new javax.swing.JTextPane();
 
@@ -97,6 +100,11 @@ public class tela2 extends javax.swing.JInternalFrame {
         jLabel6.setText("Modalidade");
 
         jButton3.setText("Gravar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Atletismo", "Futebol", "Volei", "Basquete" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -159,12 +167,9 @@ public class tela2 extends javax.swing.JInternalFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sapiranga", "Novo Hamburgo", "São Leopoldo", "Campo Bom" }));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nome", "E-mail", "Telefone"
@@ -178,13 +183,14 @@ public class tela2 extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(jTable1);
+        tabela.setToolTipText("");
+        jScrollPane6.setViewportView(tabela);
 
         jLabel10.setText("E-mail");
 
         jLabel11.setText("Telefone");
 
-        jScrollPane7.setViewportView(jTextPane6);
+        jScrollPane7.setViewportView(email);
 
         jScrollPane8.setViewportView(jTextPane7);
 
@@ -263,8 +269,8 @@ public class tela2 extends javax.swing.JInternalFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -367,8 +373,14 @@ public class tela2 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_enderecoActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+        model.addRow(new Object[]{nome.getText(), endereco.getText(), email.getText()});
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextPane email;
     private javax.swing.JTextField endereco;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -402,14 +414,13 @@ public class tela2 extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
     private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextPane jTextPane7;
     private javax.swing.JTextField nome;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }
