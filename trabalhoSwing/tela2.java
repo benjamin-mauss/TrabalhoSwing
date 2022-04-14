@@ -131,7 +131,7 @@ public class tela2 extends javax.swing.JInternalFrame {
 			    Date d;
 			    try {
 					d = date1.parse(jFormattedTextField2.getText());
-					jTextPane2.setText(Integer.toString(imc.Person.getAge(d)));
+					jTextPane2.setText(Integer.toString(imc.Person.getAge(d) )+ "|" + meses[d.getMonth()]);
 					//textField_9.setText(meses[d.getMonth()]);
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
