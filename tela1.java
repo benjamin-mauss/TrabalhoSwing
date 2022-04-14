@@ -10,6 +10,8 @@ package trabalhoSwing.TrabalhoSwing;
  */
 public class tela1 extends javax.swing.JFrame {
 
+    
+    
     /**
      * Creates new form tela1
      */
@@ -44,7 +46,7 @@ public class tela1 extends javax.swing.JFrame {
         );
         window1Layout.setVerticalGroup(
             window1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 543, Short.MAX_VALUE)
+            .addGap(0, 609, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Cadastro");
@@ -96,6 +98,7 @@ public class tela1 extends javax.swing.JFrame {
         window1.add(obj);
         obj.setVisible(true);
         
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -136,6 +139,7 @@ public class tela1 extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
