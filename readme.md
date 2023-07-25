@@ -1,1 +1,1 @@
-# Scholl homework
+# School homework
